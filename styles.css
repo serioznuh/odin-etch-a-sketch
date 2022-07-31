@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+* {
+  font-family: 'Roboto Mono', monospace;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background: #f2f2f2;
+}
+
+.text {
+  text-align: center;
+}
+
+.container {
+  border: 1px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid {
+  display: grid;
+  height: 85vh;
+  aspect-ratio: 1 / 1;
+
+  /* value 15 in both repeat needds to be updated together with number of divs pasted into
+  e.g. user enters 11 then divs in qty 11 * 11 should be pasted */
+  grid-template-columns: repeat(16, 10fr);
+  grid-template-rows: repeat(16, 10fr);
+
+  /* Big grid for testing purpose: */
+
+  /* grid-template-columns: repeat(31, 10fr);
+  grid-template-rows: repeat(31, 10fr); */
+}
+
+.cell {
+  width: auto;
+  height: auto;
+  border: 0.1px solid black;
+  box-sizing: border-box;
+}
