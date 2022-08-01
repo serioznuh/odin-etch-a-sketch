@@ -1,4 +1,7 @@
 {
   "singleQuote": true,
-  "arrowParens": "avoid"
+  "arrowParens": "avoid",
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  }
 }
