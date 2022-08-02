@@ -6,18 +6,24 @@
 // Hover
 // 1. Remove event listener when color = 100%
 
+// Style
+// 1. Change cell border color based on # of columns (e.g. more columns less brightness)
+
 const conatiner = document.querySelector('.container');
 const grid = document.querySelector('.grid');
 
-addEventListener('load', gridCreation);
+addEventListener('load', () => {
+  gridCreation();
+  mouseover();
+});
 
 function gridCreation() {
+  let elements = '';
   for (var i = 0; i < 256; i++) {
-    const div = document.createElement('div');
-    div.classList.add('cell');
-    grid.prepend(div);
+    elements += `<div class="cell"></div>`;
   }
-  mouseover();
+
+  grid.insertAdjacentHTML('beforeend', elements);
 }
 
 function mouseover() {
@@ -42,40 +48,11 @@ function mouseover() {
   });
 }
 
-// document.addEventListener('DOMContentLoaded', () => {});
-
-// const cells = document.querySelectorAll('.cell'); // NodeList
-// const cells = document.getElementsByClassName('cell'); // HTMLCollection
-// console.log(cells);
-
-// Array.from(cells).forEach(cell => {
-//   cell.addEventListener('mouseover', () => {
-//     console.log('cell');
-//   });
-// });
-
-// CREATING ARRAY
-// Array.from(cells).forEach(cell => {
-
-// FOREACH LOOP
-// cells.forEach(cell => {
-//   cell.addEventListener('mouseover', () => {
-//     console.log('cell');
-//   });
-// });
-
-// FOR OF LOOP
-// for (const cell of cells) {
-//   console.log(cell);
-//   cell.addEventListener('mouseover', () => {
-//     console.log('cell');
-//   });
-// }
-
-// function gridCreation() {
-//   for (var i = 0; i < 961; i++) {
-//     const div = document.createElement('div');
-//     div.classList.add('cell');
-//     grid.prepend(div);
-//   }
-// }
+// Initial grid creation function
+/* function gridCreation() {
+  for (var i = 0; i < 256; i++) {
+    const div = document.createElement('div');
+    div.classList.add('cell');
+    grid.prepend(div);
+  }
+} */
