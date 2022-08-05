@@ -1,12 +1,15 @@
 'use strict';
+// change allowed # of columns to 2
 
 const conatiner = document.querySelector('.container');
 const grid = document.querySelector('.grid');
-const btn = document.getElementById('btn');
+const btnColumnNum = document.getElementById('btn');
+const btnReset = document.getElementById('btnReset');
 let columnNumber = 16;
 
 addEventListener('load', gamesStart);
-btn.addEventListener('click', rowSelection);
+btnColumnNum.addEventListener('click', rowSelection);
+btnReset.addEventListener('click', resetGrid);
 
 function gamesStart() {
   gridCreation();
@@ -84,6 +87,14 @@ function mouseover() {
     cell.addEventListener('mouseout', () => {
       count++;
     });
+  });
+}
+
+function resetGrid() {
+  mouseover();
+  const cells = document.querySelectorAll('.cell');
+  cells.forEach(cell => {
+    cell.style.background = '#f2f2f2';
   });
 }
 

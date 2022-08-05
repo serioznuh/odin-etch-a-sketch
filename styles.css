@@ -28,6 +28,12 @@
   flex-direction: column;
 }
 
+.grid-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .grid {
   display: grid;
   height: 80vh;
@@ -48,12 +54,33 @@
   box-sizing: border-box;
 }
 
+#btnReset {
+  margin: 80px;
+  border: none;
+  padding: 5px;
+  font-size: 20px;
+  height: 110px;
+  width: 110px;
+  box-shadow: 0 0 2px gray;
+  border-radius: 70%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#btnReset:active {
+  box-shadow: 0 0 2px gray;
+  transform: translateY(2px);
+}
+#btnReset:hover {
+  background-color: #f2f2f2;
+}
+
 #btn {
   width: 200px;
   height: 35px;
+  font-size: 15px;
   border: none;
   outline: none;
-  background: #ffffff;
   cursor: pointer;
   position: relative;
   z-index: 0;
@@ -86,10 +113,6 @@
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
   border-radius: 13px;
-}
-
-#btn:active {
-  color: #000;
 }
 
 #btn:hover:before {
