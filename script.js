@@ -1,60 +1,66 @@
 'use strict';
-// Button
-// 1. Input validation from 4 to 100
-// 2. Add placeholder "enter from 4 to 100"
-
-// Hover
-// 1. Remove event listener when color = 100%
-
 // Style
 // 1. Change cell border color based on # of columns (e.g. more columns less brightness)
 
 const conatiner = document.querySelector('.container');
 const grid = document.querySelector('.grid');
 const btn = document.getElementById('btn');
-let rowNumber;
+let columnNumber = 16;
 
-addEventListener('load', () => {
-  gridCreation();
-  mouseover();
-});
-
+addEventListener('load', gamesStart);
 btn.addEventListener('click', rowSelection);
 
+function gamesStart() {
+  gridCreation();
+  mouseover();
+}
+
+function newGrid() {
+  while (grid.firstChild) {
+    grid.removeChild(grid.lastChild);
+  }
+
+  gamesStart();
+
+  grid.style.setProperty(
+    'grid-template-columns',
+    `repeat(${columnNumber}, 1fr)`
+  );
+  grid.style.setProperty('grid-template-rows', `repeat(${columnNumber}, 1fr)`);
+}
+
 function invokePrompt() {
-  rowNumber = prompt('Please enter the number between 4 & 100');
+  columnNumber = prompt('Please enter the number between 4 & 100');
 }
 
 function rowSelection() {
   invokePrompt();
 
   while (
-    rowNumber < 4 ||
-    rowNumber > 100 ||
-    rowNumber === '' ||
-    isNaN(rowNumber) ||
-    rowNumber.indexOf(' ') >= 0 // check for space
+    columnNumber < 4 ||
+    columnNumber > 100 ||
+    columnNumber === '' ||
+    isNaN(columnNumber) ||
+    columnNumber.indexOf(' ') >= 0 // check for space
   ) {
-    if (rowNumber === null) return; // check Cancel is clicked and close prompt
+    if (columnNumber === null) return; // check Cancel is clicked and close prompt
     alert('The number should be between 4 and 100');
     invokePrompt();
   }
 
   // Is that valid approach? It checks if value entered is not number > 4 or 100
-  /* while (!(rowNumber >= 4) || !(rowNumber <= 100)) {
-    if (rowNumber === null) return; // check Cancel is clicked
+  /* while (!(columnNumber >= 4) || !(columnNumber <= 100)) {
+    if (columnNumber === null) return; // check Cancel is clicked
     alert('The number should be between 4 and 100');
     invokePrompt();
   } */
 
-  if (rowNumber >= 4 || rowNumber <= 100) {
-    console.log('nice!');
-  }
+  if (columnNumber >= 4 || columnNumber <= 100) newGrid();
 }
 
 function gridCreation() {
   let elements = '';
-  for (var i = 0; i < 256; i++) {
+  for (var i = 0; i < columnNumber ** 2; i++) {
     elements += `<div class="cell"></div>`;
   }
 
@@ -82,12 +88,3 @@ function mouseover() {
     });
   });
 }
-
-// Initial grid creation function
-/* function gridCreation() {
-  for (var i = 0; i < 256; i++) {
-    const div = document.createElement('div');
-    div.classList.add('cell');
-    grid.prepend(div);
-  }
-} */
