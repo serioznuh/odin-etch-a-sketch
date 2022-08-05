@@ -35,22 +35,16 @@
   aspect-ratio: 1 / 1;
   border: 2px solid;
   box-shadow: 5px 5px gray;
-
-  /* value 15 in both repeat needds to be updated together with number of divs pasted into
-  e.g. user enters 11 then divs in qty 11 * 11 should be pasted */
   grid-template-columns: repeat(16, 1fr);
   grid-template-rows: repeat(16, 1fr);
-
-  /* Big grid for testing purpose: */
-
-  /* grid-template-columns: repeat(31, 10fr);
-  grid-template-rows: repeat(31, 10fr); */
 }
 
 .cell {
   width: auto;
   height: auto;
-  border: 0.1px solid #706f66;
+  border-style: solid;
+  border-width: 0.1px;
+  border-color: #a8a8a3;
   box-sizing: border-box;
 }
 

@@ -1,6 +1,4 @@
 'use strict';
-// Style
-// 1. Change cell border color based on # of columns (e.g. more columns less brightness)
 
 const conatiner = document.querySelector('.container');
 const grid = document.querySelector('.grid');
@@ -13,24 +11,6 @@ btn.addEventListener('click', rowSelection);
 function gamesStart() {
   gridCreation();
   mouseover();
-}
-
-function newGrid() {
-  while (grid.firstChild) {
-    grid.removeChild(grid.lastChild);
-  }
-
-  gamesStart();
-
-  grid.style.setProperty(
-    'grid-template-columns',
-    `repeat(${columnNumber}, 1fr)`
-  );
-  grid.style.setProperty('grid-template-rows', `repeat(${columnNumber}, 1fr)`);
-}
-
-function invokePrompt() {
-  columnNumber = prompt('Please enter the number between 4 & 100');
 }
 
 function rowSelection() {
@@ -50,12 +30,30 @@ function rowSelection() {
 
   // Is that valid approach? It checks if value entered is not number > 4 or 100
   /* while (!(columnNumber >= 4) || !(columnNumber <= 100)) {
-    if (columnNumber === null) return; // check Cancel is clicked
-    alert('The number should be between 4 and 100');
-    invokePrompt();
-  } */
+      if (columnNumber === null) return; // check Cancel is clicked
+      alert('The number should be between 4 and 100');
+      invokePrompt();
+    } */
 
   if (columnNumber >= 4 || columnNumber <= 100) newGrid();
+}
+
+function newGrid() {
+  while (grid.firstChild) {
+    grid.removeChild(grid.lastChild);
+  }
+
+  gamesStart();
+
+  grid.style.setProperty(
+    'grid-template-columns',
+    `repeat(${columnNumber}, 1fr)`
+  );
+  grid.style.setProperty('grid-template-rows', `repeat(${columnNumber}, 1fr)`);
+}
+
+function invokePrompt() {
+  columnNumber = prompt('Please enter the number between 4 & 100');
 }
 
 function gridCreation() {
@@ -88,3 +86,15 @@ function mouseover() {
     });
   });
 }
+
+// Change cell border color based on # of columns
+/* function setCellBorderColor() {
+  const cells = document.querySelectorAll('.cell');
+  cells.forEach(cell => {
+    if (columnNumber > 25) {
+      cell.style.borderColor = '#b7b7b2';
+    } else if (columnNumber > 70) {
+      cell.style.borderColor = '#e7e7e5';
+    }
+  });
+} */
