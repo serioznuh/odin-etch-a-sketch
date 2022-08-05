@@ -1,5 +1,4 @@
 'use strict';
-// change allowed # of columns to 2
 
 const conatiner = document.querySelector('.container');
 const grid = document.querySelector('.grid');
@@ -20,25 +19,25 @@ function rowSelection() {
   invokePrompt();
 
   while (
-    columnNumber < 4 ||
+    columnNumber < 2 ||
     columnNumber > 100 ||
     columnNumber === '' ||
     isNaN(columnNumber) ||
     columnNumber.indexOf(' ') >= 0 // check for space
   ) {
     if (columnNumber === null) return; // check Cancel is clicked and close prompt
-    alert('The number should be between 4 and 100');
+    alert('The number should be between 2 and 100');
     invokePrompt();
   }
 
   // Is that valid approach? It checks if value entered is not number > 4 or 100
-  /* while (!(columnNumber >= 4) || !(columnNumber <= 100)) {
+  /* while (!(columnNumber >= 2) || !(columnNumber <= 100)) {
       if (columnNumber === null) return; // check Cancel is clicked
       alert('The number should be between 4 and 100');
       invokePrompt();
     } */
 
-  if (columnNumber >= 4 || columnNumber <= 100) newGrid();
+  if (columnNumber >= 2 || columnNumber <= 100) newGrid();
 }
 
 function newGrid() {
@@ -56,7 +55,7 @@ function newGrid() {
 }
 
 function invokePrompt() {
-  columnNumber = prompt('Please enter the number between 4 & 100');
+  columnNumber = prompt('Please enter the number between 2 & 100');
 }
 
 function gridCreation() {
