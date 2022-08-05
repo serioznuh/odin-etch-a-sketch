@@ -11,11 +11,46 @@
 
 const conatiner = document.querySelector('.container');
 const grid = document.querySelector('.grid');
+const btn = document.getElementById('btn');
+let rowNumber;
 
 addEventListener('load', () => {
   gridCreation();
   mouseover();
 });
+
+btn.addEventListener('click', rowSelection);
+
+function invokePrompt() {
+  rowNumber = prompt('Please enter the number between 4 & 100');
+}
+
+function rowSelection() {
+  invokePrompt();
+
+  while (
+    rowNumber < 4 ||
+    rowNumber > 100 ||
+    rowNumber === '' ||
+    isNaN(rowNumber) ||
+    rowNumber.indexOf(' ') >= 0 // check for space
+  ) {
+    if (rowNumber === null) return; // check Cancel is clicked and close prompt
+    alert('The number should be between 4 and 100');
+    invokePrompt();
+  }
+
+  // Is that valid approach? It checks if value entered is not number > 4 or 100
+  /* while (!(rowNumber >= 4) || !(rowNumber <= 100)) {
+    if (rowNumber === null) return; // check Cancel is clicked
+    alert('The number should be between 4 and 100');
+    invokePrompt();
+  } */
+
+  if (rowNumber >= 4 || rowNumber <= 100) {
+    console.log('nice!');
+  }
+}
 
 function gridCreation() {
   let elements = '';
