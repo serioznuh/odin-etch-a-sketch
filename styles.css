@@ -15,10 +15,7 @@
   justify-content: space-evenly;
   align-items: center;
   height: 15vh;
-}
-
-.text {
-  text-align: center;
+  margin-bottom: 5px;
 }
 
 .container {
@@ -28,15 +25,9 @@
   flex-direction: column;
 }
 
-.grid-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .grid {
   display: grid;
-  height: 80vh;
+  height: 75vh;
   aspect-ratio: 1 / 1;
   border: 2px solid;
   box-shadow: 5px 5px gray;
@@ -54,28 +45,52 @@
   box-sizing: border-box;
 }
 
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  height: 7vh;
+  margin-top: 5px;
+}
+
+.color {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5vw;
+}
+
+#color {
+  margin-left: 5px;
+}
+
 #btnReset {
-  margin: 80px;
   border: none;
-  padding: 5px;
-  font-size: 20px;
-  height: 110px;
-  width: 110px;
-  box-shadow: 0 0 2px gray;
-  border-radius: 70%;
   cursor: pointer;
+  width: 50px;
+  height: 27px;
   transition: all 0.2s ease;
+  border-width: 1px;
+  border-style: solid;
+  border-color: buttonborder;
+  font-size: 13px;
 }
 
 #btnReset:active {
-  box-shadow: 0 0 2px gray;
   transform: translateY(2px);
 }
+
 #btnReset:hover {
   background-color: #f2f2f2;
 }
 
-#btn {
+::-webkit-color-swatch-wrapper {
+  padding: 2px;
+}
+
+#btnColumn {
   width: 200px;
   height: 35px;
   font-size: 15px;
@@ -87,7 +102,7 @@
   border-radius: 13px;
 }
 
-#btn:before {
+#btnColumn:before {
   content: '';
   background: linear-gradient(
     45deg,
@@ -115,11 +130,11 @@
   border-radius: 13px;
 }
 
-#btn:hover:before {
+#btnColumn:hover:before {
   opacity: 1;
 }
 
-#btn:after {
+#btnColumn:after {
   z-index: -1;
   content: '';
   position: absolute;

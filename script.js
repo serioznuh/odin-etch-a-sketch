@@ -2,13 +2,15 @@
 
 const conatiner = document.querySelector('.container');
 const grid = document.querySelector('.grid');
-const btnColumnNum = document.getElementById('btn');
+const btnColumnNum = document.getElementById('btnColumn');
 const btnReset = document.getElementById('btnReset');
+const color = document.getElementById('color');
 let columnNumber = 16;
 
 addEventListener('load', gamesStart);
 btnColumnNum.addEventListener('click', rowSelection);
 btnReset.addEventListener('click', resetGrid);
+color.addEventListener('change', changeCellBackgroundColor);
 
 function gamesStart() {
   gridCreation();
@@ -94,6 +96,15 @@ function resetGrid() {
   const cells = document.querySelectorAll('.cell');
   cells.forEach(cell => {
     cell.style.background = '#f2f2f2';
+  });
+}
+
+function changeCellBackgroundColor(color) {
+  const cells = document.querySelectorAll('.cell');
+  cells.forEach(cell => {
+    cell.addEventListener('mouseover', event => {
+      event.target.style.background = color.target.value;
+    });
   });
 }
 
