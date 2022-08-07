@@ -126,6 +126,7 @@ function resetGrid() {
   const cells = document.querySelectorAll('.cell');
   cells.forEach(cell => {
     cell.style.background = '#ffffff';
+    cell.style.borderColor = '#ffffff';
   });
 }
 
