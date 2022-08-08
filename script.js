@@ -139,15 +139,3 @@ function changeCellBackgroundColor(color) {
     });
   });
 }
-
-// Change cell border color based on # of columns
-/* function setCellBorderColor() {
-  const cells = document.querySelectorAll('.cell');
-  cells.forEach(cell => {
-    if (columnNumber > 25) {
-      cell.style.borderColor = '#b7b7b2';
-    } else if (columnNumber > 70) {
-      cell.style.borderColor = '#e7e7e5';
-    }
-  });
-} */
